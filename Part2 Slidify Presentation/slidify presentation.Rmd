@@ -1,0 +1,62 @@
+---
+title: "Developing Data Products Course Project"
+author: "Shaopeng Li"
+date: "2020/8/7"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+  
+## Purpose of the Shiny app
+  
+The Shiny app based on the Diamonds dataset has two main parts. The first is to look into the relation between the price and the other selected variables. Then you can build a model based on the two variables and the application will show the detailed summary of the fitted model.
+
+## Diamonds dataset
+
+### Prices of over 50,000 round cut diamonds
+> This classic dataset contains the prices and other attributes of almost 54,000 diamonds. It's a great dataset for beginners learning to work with data analysis and visualization.
+
+### Source
+> Gilmore, Elisabeth; Nils Petter Gleditsch, Päivi Lujala & Jan Ketil Rød, 2005. ‘Conflict Diamonds: A New Dataset’, Conflict Management and Peace Science 22(3): 257–292
+```{r}
+library(ggplot2)
+data(diamonds)
+head(diamonds,3)
+```
+
+## Format
+**A data frame with 53940 observations on 10 variables.**
+
+| Index | Field | Detail |
+------- | ----- | ------ |
+| [, 1] | price | price in US dollars |
+|[, 2]|carat|weight of the diamond)|
+|[, 3]|cut|quality of the cut|
+|[, 4]|color|diamond colour|
+|[, 5]|clarity|a measurement of how clear the diamond is|
+|[, 6]|x|length in mm|
+|[, 7]|y|width in mm|
+|[, 8]|z|depth in mm|
+|[, 9]|depth|total depth percentage|
+|[,10]|table|width of top of diamond relative to widest point|
+
+---
+## Model Fit Example
+```{r,echo=TRUE}
+modelfit <- lm(price~as.integer(cut), data=diamonds)
+summary(modelfit)
+```
+
+As a result, in average, the change in cut will cause **-191.11** change in the price of the diamond.
+
+
+## Ready to give it a try?
+
+Links:
+
+Github repository: *https://github.com/shorpenlee/Data-Products-Week4-Final-Project*
+
+Shinny application: *https://shaopengli.shinyapps.io/My_Shiny_Demo/*
