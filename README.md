@@ -26,5 +26,5 @@ ____
 * It must be on github
 * It must contained some embedded R code that gets run when slidifying the document
 
-The slidify presenation can be found in: 
+The slidify presenation can be found in: https://rpubs.com/shaopengli/646872
 ____
